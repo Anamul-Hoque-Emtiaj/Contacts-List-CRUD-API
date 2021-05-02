@@ -1,6 +1,19 @@
 import axios from 'axios'
 const URL = "http://localhost:3000/contacts";
 
+window.onload = function(){
+    const Parent = document.getElementById('Parents')
+    axios.get(URL)
+    .then(res=>{
+        res.data.forEach(element => {
+            CreateRow(element,Parent);
+         });
+    })
+    .catch(err=>{
+    console.log(err);
+    })
+}
+
 const CreateRow = (contact,Parent) =>{
     let TR = document.createElement('tr')
     let tdName = document.createElement('td')
@@ -35,18 +48,5 @@ const CreateRow = (contact,Parent) =>{
     Parent.appendChild(TR)
 }
 
-window.onload = function(){
-    const Parent = document.getElementById('Parents')
-    axios.get(URL)
-    .then(res=>{
-        res.data.forEach(element => {
-            CreateRow(element,Parent);
-         });
-    })
-    .catch(err=>{
-    console.log(err);
-    })
-
-}
 
 

@@ -8,6 +8,7 @@ const obj={
     MobileNo: '01632547656'
 }
 
+const Parent = "tbody"
 const CreateRow = (contact,Parent) =>{
     let TR = document.createElement('tr')
     let tdName = document.createElement('td')
@@ -38,7 +39,9 @@ const CreateRow = (contact,Parent) =>{
 
 axios.get(URL)
 .then(res=>{
-    console.log(res.data);
+    res.data.forEach(element => {
+        CreateRow(element,Parent);
+    });
 })
 .catch(err=>{
     console.log(err);

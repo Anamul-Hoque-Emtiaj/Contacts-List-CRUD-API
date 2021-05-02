@@ -8,7 +8,7 @@ const obj={
     MobileNo: '01632547656'
 }
 
-const Parent = "tbody"
+const Parent = document.getElementById('Parents')
 const CreateRow = (contact,Parent) =>{
     let TR = document.createElement('tr')
     let tdName = document.createElement('td')

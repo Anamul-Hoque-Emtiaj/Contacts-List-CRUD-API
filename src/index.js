@@ -42,7 +42,7 @@ const CreateRow = (contact,Parent) =>{
     Parent.appendChild(TR)
 }
 
-window.onload = () =>{
+window.onload = function(){
     const Parent = document.getElementById('Parents')
     axios.get(URL)
     .then(res=>{

@@ -8,7 +8,6 @@ const obj={
     MobileNo: '01632547656'
 }
 
-const Parent = document.getElementById('Parents')
 const CreateRow = (contact,Parent) =>{
     let TR = document.createElement('tr')
     let tdName = document.createElement('td')
@@ -27,29 +26,39 @@ const CreateRow = (contact,Parent) =>{
     let EditBtn = document.createElement('button')
     EditBtn.className = 'btn btn-warning'
     EditBtn.innerHTML = 'Edit'
+    EditBtn.addEventListener('click',()=>{
+        
+    })
     tdActions.appendChild(EditBtn)
 
     let DeleteBtn = document.createElement('button')
     DeleteBtn.className = 'btn btn-danger'
     DeleteBtn.innerHTML = 'Delete'
+    DeleteBtn.addEventListener('click',()=>{
+
+    })
     tdActions.appendChild(DeleteBtn)
     TR.appendChild(tdActions)
     Parent.appendChild(TR)
 }
 
-axios.get(URL)
-.then(res=>{
-    res.data.forEach(element => {
-        CreateRow(element,Parent);
-    });
-})
-.catch(err=>{
+window.onload = () =>{
+    const Parent = document.getElementById('Parents')
+    axios.get(URL)
+    .then(res=>{
+        res.data.forEach(element => {
+            CreateRow(element,Parent);
+         });
+    })
+    .catch(err=>{
     console.log(err);
-})
+    })
 
-axios.post(URL, obj)
-.then(res=>{
-    console.log(res.data);
-}).catch(err=>{
-    console.log("Error Occured");
-})
+    axios.post(URL, obj)
+    .then(res=>{
+        console.log(res.data);
+    }).catch(err=>{
+        console.log("Error Occured");
+    })
+}
+

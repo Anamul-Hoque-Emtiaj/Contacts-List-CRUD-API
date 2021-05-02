@@ -1,4 +1,4 @@
-const axios = require('axios');
+import axios from 'axios'
 const URL = "http://localhost:3000/contacts";
 
 axios.get(URL)
@@ -11,13 +11,13 @@ axios.get(URL)
 
 const obj={
     ID: 4,
-    name: "Emran",
-    email: "emran@gmail.com",
-    MobileNo: "01632547656"
+    name: 'Emran',
+    email: 'emran@gmail.com',
+    MobileNo: '01632547656'
 }
 axios.post(URL, obj)
 .then(res=>{
     console.log(res.data);
 }).catch(err=>{
-    console.log(err);
+    console.log("Error Occured");
 })

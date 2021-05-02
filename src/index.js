@@ -1,12 +1,5 @@
-const axios = require('axios').default;
+import axios from 'axios'
 const URL = "http://localhost:3000/contacts";
-
-const obj={
-    ID: 4,
-    name: 'Emran',
-    email: 'emran@gmail.com',
-    MobileNo: '01632547656'
-}
 
 const CreateRow = (contact,Parent) =>{
     let TR = document.createElement('tr')
@@ -54,11 +47,6 @@ window.onload = function(){
     console.log(err);
     })
 
-    axios.post(URL, obj)
-    .then(res=>{
-        console.log(res.data);
-    }).catch(err=>{
-        console.log("Error Occured");
-    })
 }
+
 

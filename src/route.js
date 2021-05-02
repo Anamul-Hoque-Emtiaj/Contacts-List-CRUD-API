@@ -1,4 +1,4 @@
-import axios from 'axios'
+const axios = require('axios').default;
 const URL = "http://localhost:3000/contacts";
 
 axios.get(URL)
